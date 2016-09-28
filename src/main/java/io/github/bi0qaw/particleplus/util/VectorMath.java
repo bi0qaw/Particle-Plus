@@ -8,7 +8,6 @@ public class VectorMath {
 	public static final Vector UNIT_X = new Vector(1,0,0);
 	public static final Vector UNIT_Y = new Vector(0,1,0);
 	public static final Vector UNIT_Z = new Vector(0,0,1);
-	public static final Vector UNIT_XZ = new Vector(1,0,1).normalize();
 
 
 	private VectorMath() {

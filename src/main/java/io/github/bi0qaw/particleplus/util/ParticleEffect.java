@@ -863,7 +863,7 @@ public enum ParticleEffect {
 	/**
 	 * Represents the particle data for effects like {@link ParticleEffect#ITEM_CRACK}, {@link ParticleEffect#BLOCK_CRACK} and {@link ParticleEffect#BLOCK_DUST}
 	 * <p>
-	 * This class is part of the <b>ParticlePlusEffect Library</b> and follows the same usage conditions
+	 * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
 	 *
 	 * @author DarkBlade12
 	 * @since 1.6
@@ -927,7 +927,7 @@ public enum ParticleEffect {
 	/**
 	 * Represents the item data for the {@link ParticleEffect#ITEM_CRACK} effect
 	 * <p>
-	 * This class is part of the <b>ParticlePlusEffect Library</b> and follows the same usage conditions
+	 * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
 	 *
 	 * @author DarkBlade12
 	 * @since 1.6
@@ -949,7 +949,7 @@ public enum ParticleEffect {
 	/**
 	 * Represents the block data for the {@link ParticleEffect#BLOCK_CRACK} and {@link ParticleEffect#BLOCK_DUST} effects
 	 * <p>
-	 * This class is part of the <b>ParticlePlusEffect Library</b> and follows the same usage conditions
+	 * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
 	 *
 	 * @author DarkBlade12
 	 * @since 1.6
@@ -975,7 +975,7 @@ public enum ParticleEffect {
 	/**
 	 * Represents a runtime exception that is thrown either if the displayed particle effect requires data and has none or vice-versa or if the data type is wrong
 	 * <p>
-	 * This class is part of the <b>ParticlePlusEffect Library</b> and follows the same usage conditions
+	 * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
 	 *
 	 * @author DarkBlade12
 	 * @since 1.6
@@ -997,7 +997,7 @@ public enum ParticleEffect {
 	/**
 	 * Represents a runtime exception that is thrown if the displayed particle effect requires a newer version
 	 * <p>
-	 * This class is part of the <b>ParticlePlusEffect Library</b> and follows the same usage conditions
+	 * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
 	 *
 	 * @author DarkBlade12
 	 * @since 1.6
@@ -1019,7 +1019,7 @@ public enum ParticleEffect {
 	/**
 	 * Represents a particle effect packet with all attributes which is used for sending packets to the players
 	 * <p>
-	 * This class is part of the <b>ParticlePlusEffect Library</b> and follows the same usage conditions
+	 * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
 	 *
 	 * @author DarkBlade12
 	 * @since 1.5
@@ -1279,7 +1279,7 @@ public enum ParticleEffect {
 		/**
 		 * Represents a runtime exception that is thrown if a bukkit version is not compatible with this library
 		 * <p>
-		 * This class is part of the <b>ParticlePlusEffect Library</b> and follows the same usage conditions
+		 * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
 		 *
 		 * @author DarkBlade12
 		 * @since 1.5
@@ -1302,7 +1302,7 @@ public enum ParticleEffect {
 		/**
 		 * Represents a runtime exception that is thrown if packet instantiation fails
 		 * <p>
-		 * This class is part of the <b>ParticlePlusEffect Library</b> and follows the same usage conditions
+		 * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
 		 *
 		 * @author DarkBlade12
 		 * @since 1.4
@@ -1325,7 +1325,7 @@ public enum ParticleEffect {
 		/**
 		 * Represents a runtime exception that is thrown if packet sending fails
 		 * <p>
-		 * This class is part of the <b>ParticlePlusEffect Library</b> and follows the same usage conditions
+		 * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
 		 *
 		 * @author DarkBlade12
 		 * @since 1.4
