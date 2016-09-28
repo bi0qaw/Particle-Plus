@@ -1,0 +1,8 @@
+name: ParticlePlus
+main: io.github.bi0qaw.particleplus.ParticlePlus
+version: 1.0
+commands:
+  particleplus:
+    description: Some Description
+    usage: /particleplus
+    aliases: pp
