@@ -19,6 +19,7 @@ public class ParticlePlusParticle {
 	public static final ParticleEffect.ItemData DEF_ITEM_DATA =  new ParticleEffect.ItemData(Material.AIR,(byte) 0);
 	public static final ParticleEffect.BlockData DEF_BLOCK_DATA = new ParticleEffect.BlockData(Material.AIR,(byte) 0);
 	public static final Color DEF_COLOR = Color.RED;
+	private static final float INVERSE_255 = 1F/255F;
 
 	private ParticleEffect particle = DEF_PARTICLE;
 	private float offsetX = DEF_OFFSET_X;
@@ -35,7 +36,22 @@ public class ParticlePlusParticle {
 	public ParticlePlusParticle(){
 	}
 
+	public ParticlePlusParticle(ParticleEffect particle){
+		this.particle = particle;
+	}
+
 	public void display(Location location){
+		particle.display(offsetX, offsetY, offsetZ, speed, amount, location, range);
+	}
+
+	public void displayColor(Location location){
+		float red = (float) color.getRed() * INVERSE_255;
+		float green = (float) color.getGreen() * INVERSE_255;
+		float blue = (float) color.getBlue() * INVERSE_255;
+		if (red < Float.MIN_NORMAL) {
+			red = Float.MIN_NORMAL;
+		}
+		particle.display(red, green, blue, 1, 0, location, range);
 	}
 
 	public int getAmount() {

@@ -9,6 +9,7 @@ public class DynamicLocation extends Location {
 	private Entity entity = null;
 	private boolean dynamic = false;
 	private float epsilon = 0.05F;
+	private float epsilonSquared = epsilon*epsilon;
 
 	public DynamicLocation(Location location){
 		super(location.getWorld(), location.getX(), location.getY(), location.getZ());
@@ -32,13 +33,11 @@ public class DynamicLocation extends Location {
 	}
 
 	public boolean needsUpdate() {
-		if (dynamic && this.distanceSquared(entity.getLocation()) > epsilon * epsilon) return true;
-		return false;
+		return dynamic && this.distanceSquared(entity.getLocation()) > epsilonSquared;
 	}
 
 	public boolean needsUpdate(long ticks) {
-		if (dynamic && this.distanceSquared(entity.getLocation()) > epsilon * epsilon / (ticks > 0 ? ticks : 1)) return true;
-		return false;
+		return dynamic && this.distanceSquared(entity.getLocation()) > epsilonSquared / (ticks > 0 ? ticks : 1);
 	}
 
 	public boolean hasMoved() {
@@ -59,6 +58,7 @@ public class DynamicLocation extends Location {
 
 	public void setEpsilon(float epsilon) {
 		this.epsilon = epsilon;
+		this.epsilonSquared = epsilon * epsilon;
 	}
 
 	public Entity getEntity() {
@@ -86,9 +86,15 @@ public class DynamicLocation extends Location {
 	}
 
 	public static DynamicLocation init(Object center) {
-		if (center instanceof Entity) return new DynamicLocation((Entity) center);
-		else if (center instanceof Location) return new DynamicLocation((Location) center);
-		else throw new IllegalArgumentException("The object is not of type Entity or Location");
+		if (center instanceof Entity) {
+			return new DynamicLocation((Entity) center);
+		}
+		else if (center instanceof Location) {
+			return new DynamicLocation((Location) center);
+		}
+		else {
+			throw new IllegalArgumentException("The object is not of type Entity or Location");
+		}
 	}
 
 

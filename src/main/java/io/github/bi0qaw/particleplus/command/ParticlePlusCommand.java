@@ -1,10 +1,7 @@
 package io.github.bi0qaw.particleplus.command;
 
 import io.github.bi0qaw.particleplus.ParticlePlus;
-import io.github.bi0qaw.particleplus.effect.Aura;
-import io.github.bi0qaw.particleplus.effect.SinHalo;
-import io.github.bi0qaw.particleplus.effect.ParticlePlusEffect;
-import io.github.bi0qaw.particleplus.effect.Spiral;
+import io.github.bi0qaw.particleplus.effect.*;
 import io.github.bi0qaw.particleplus.util.DynamicLocation;
 import io.github.bi0qaw.particleplus.util.ParticleEffect;
 import org.bukkit.command.Command;
@@ -36,6 +33,10 @@ public class ParticlePlusCommand implements CommandExecutor {
 				else if(args[1].equals("spiral")){
 					ParticlePlusEffect spiral = new Spiral(DynamicLocation.init(p));
 					ParticlePlus.getManager().startEffect(spiral);
+				}
+				else if(args[1].equals("rbspiral")){
+					ParticlePlusEffect rbspiral = new RainbowSpiral(DynamicLocation.init(p));
+					ParticlePlus.getManager().startEffect(rbspiral);
 				}
 
 			}

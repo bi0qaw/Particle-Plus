@@ -1,15 +1,12 @@
 package io.github.bi0qaw.particleplus.effect;
 
 
-import io.github.bi0qaw.particleplus.util.DynamicLocation;
-import io.github.bi0qaw.particleplus.util.GenericMath;
-import io.github.bi0qaw.particleplus.util.ParticleEffect;
-import io.github.bi0qaw.particleplus.util.VectorMath;
+import io.github.bi0qaw.particleplus.util.*;
 import org.bukkit.util.Vector;
 
 public class Spiral extends ParticlePlusEffect {
 
-	ParticleEffect particle;
+	ParticlePlusParticle particle;
 	DynamicLocation location;
 	double radius = 0.75;
 	float angle = 90;
@@ -23,10 +20,10 @@ public class Spiral extends ParticlePlusEffect {
 	Vector vec;
 
 	public Spiral(DynamicLocation location){
-		this(location, ParticleEffect.FLAME);
+		this(location, new ParticlePlusParticle());
 	}
 
-	public Spiral(DynamicLocation location, ParticleEffect particle){
+	public Spiral(DynamicLocation location, ParticlePlusParticle particle){
 		this.location = location;
 		this.particle = particle;
 		this.yaw = location.getYaw();
@@ -42,8 +39,8 @@ public class Spiral extends ParticlePlusEffect {
 				heightStep *= -1;
 			}
 			height += heightStep;
-			particle.display(0, 0, 0, 0, 1, location.getLocation().add(vec), 32);
-			particle.display(0, 0, 0, 0, 1, location.getLocation().add(-vec.getX(),vec.getY(), -vec.getZ()), 32);
+			particle.display(location.getLocation().add(vec));
+			particle.display(location.getLocation().add(-vec.getX(),vec.getY(), -vec.getZ()));
 		}
 		else {
 			location.update();

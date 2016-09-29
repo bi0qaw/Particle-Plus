@@ -1,15 +1,11 @@
 package io.github.bi0qaw.particleplus.effect;
 
-import io.github.bi0qaw.particleplus.util.ParticleEffect;
-import io.github.bi0qaw.particleplus.util.DynamicLocation;
-import io.github.bi0qaw.particleplus.util.TrigMath;
-import io.github.bi0qaw.particleplus.util.VectorMath;
-import io.github.bi0qaw.particleplus.util.GenericMath;
+import io.github.bi0qaw.particleplus.util.*;
 import org.bukkit.util.Vector;
 
 public class Halo extends ParticlePlusEffect {
 
-	ParticleEffect particle = ParticleEffect.FLAME;
+	ParticlePlusParticle particle;
 	DynamicLocation location;
 	double radius = 1;
 	Vector vec;
@@ -18,16 +14,14 @@ public class Halo extends ParticlePlusEffect {
 	float yaw;
 
 	public Halo(DynamicLocation location){
-		this(location, ParticleEffect.FLAME);
+		this(location, new ParticlePlusParticle());
 	}
 
-	public Halo(DynamicLocation location, ParticleEffect particle){
+	public Halo(DynamicLocation location, ParticlePlusParticle particle){
 		this.particle = particle;
 		this.location = location;
-		this.setPulse(1);
 		this.yaw = location.getYaw();
 	}
-
 
 	@Override
 	public void onRun() {
@@ -35,7 +29,7 @@ public class Halo extends ParticlePlusEffect {
 			location.update();
 			vec = VectorMath.fromCylindricalCoordinates(radius, yaw + angle, 2);
 			angle = GenericMath.wrapAngleDeg(angle + angleStep);
-			particle.display(0, 0, 0, 0, 1, location.getLocation().add(vec), 32);
+			particle.display(location.getLocation().add(vec));
 		}
 		else {
 			location.update();

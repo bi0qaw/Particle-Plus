@@ -1,15 +1,11 @@
 package io.github.bi0qaw.particleplus.effect;
 
-import io.github.bi0qaw.particleplus.util.ParticleEffect;
-import io.github.bi0qaw.particleplus.util.DynamicLocation;
-import io.github.bi0qaw.particleplus.util.TrigMath;
-import io.github.bi0qaw.particleplus.util.VectorMath;
-import io.github.bi0qaw.particleplus.util.GenericMath;
+import io.github.bi0qaw.particleplus.util.*;
 import org.bukkit.util.Vector;
 
 public class SinHalo extends ParticlePlusEffect {
 
-	ParticleEffect particle = ParticleEffect.FLAME;
+	ParticlePlusParticle particle;
 	DynamicLocation location;
 	double radius = 1;
 	Vector vec;
@@ -21,13 +17,12 @@ public class SinHalo extends ParticlePlusEffect {
 	float yaw;
 
 	public SinHalo(DynamicLocation location){
-		this(location, ParticleEffect.FLAME);
+		this(location, new ParticlePlusParticle());
 	}
 
-	public SinHalo(DynamicLocation location, ParticleEffect particle){
+	public SinHalo(DynamicLocation location, ParticlePlusParticle particle){
 		this.location = location;
 		this.particle = particle;
-		this.setPulse(1);
 		this.yaw = this.location.getYaw();
 	}
 
@@ -39,7 +34,7 @@ public class SinHalo extends ParticlePlusEffect {
 			vec = VectorMath.fromCylindricalCoordinates(radius, yaw + angle, 2 + TrigMath.sin(height) * heightAmplitude);
 			angle = GenericMath.wrapAngleDeg(angle + angleStep);
 			height = GenericMath.wrapAngleRad(height + heightStep);
-			particle.display(0, 0, 0, 0, 1, location.getLocation().add(vec), 32);
+			particle.display(location.getLocation().add(vec));
 		}
 		else {
 			location.update();
